@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="chandan_testimonial" resource="default" engine="innodb" comment="Testimonial Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Testimonial ID"/>
+        <column xsi:type="varchar" name="customer_name" nullable="false" length="255" comment="Customer Name"/>
+        <column xsi:type="text" name="message" nullable="false" comment="Testimonial Message"/>
+        <column xsi:type="smallint" name="approval_status" nullable="false" default="0" comment="Approval Status"/>
+        <column xsi:type="smallint" name="status" nullable="false" default="1" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" onUpdate="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

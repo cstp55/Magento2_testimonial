@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Block -->
+    <preference for="Chandan\Testimonial\Block\Adminhtml\Testimonial\Edit" type="Magento\Backend\Block\Widget\Form\Container"/>
+    <preference for="Chandan\Testimonial\Block\Adminhtml\Testimonial\Index" type="Magento\Backend\Block\Widget\Grid\Container"/>
+
+    <!-- Controller -->
+    <type name="Chandan\Testimonial\Controller\Adminhtml\Testimonial\Delete">
+        <arguments>
+            <argument name="testimonialFactory" xsi:type="object">Chandan\Testimonial\Model\TestimonialFactory</argument>
+        </arguments>
+    </type>
+    <type name="Chandan\Testimonial\Controller\Adminhtml\Testimonial\MassApprove">
+        <arguments>
+            <argument name="testimonialCollectionFactory" xsi:type="object">Chandan\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory</argument>
+        </arguments>
+    </type>
+    <type name="Chandan\Testimonial\Controller\Adminhtml\Testimonial\MassDisapprove">
+        <arguments>
+            <argument name="testimonialCollectionFactory" xsi:type="object">Chandan\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory</argument>
+        </arguments>
+    </type>
+    <type name="Chandan\Testimonial\Controller\Adminhtml\Testimonial\MassStatusChange">
+        <arguments>
+            <argument name="testimonialCollectionFactory" xsi:type="object">Chandan\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory</argument>
+        </arguments>
+    </type>
+
+    <!-- UI Component -->
+    <virtualType name="Chandan\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">chandan_testimonial</argument>
+            <argument name="resourceModel" xsi:type="string">Chandan\Testimonial\Model\ResourceModel\Testimonial</argument>
+        </arguments>
+    </virtualType>
+    <type name="Chandan\Testimonial\Ui\DataProvider\TestimonialDataProvider">
+        <arguments>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="collectionFactory" xsi:type="object">Chandan\Testimonial\Model\ResourceModel\Testimonial\Grid\CollectionFactory</argument>
+        </arguments>
+    </type>
+</config>

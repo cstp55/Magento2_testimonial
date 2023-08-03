@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">chandan_testimonial_testimonial_listing.chandan_testimonial_testimonial_listing_data_source</item>
+            <item name="deps" xsi:type="string">chandan_testimonial_testimonial_listing.chandan_testimonial_testimonial_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>chandan_testimonial_columns</spinner>
+        <deps>
+            <dep>chandan_testimonial_testimonial_listing.chandan_testimonial_testimonial_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="chandan_testimonial_testimonial_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">TestimonialDataProvider</argument>
+            <argument name="name" xsi:type="string">chandan_testimonial_testimonial_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="chandan_testimonial_columns">
+        <settings>
+            <editorConfig>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="chandan_testimonial/testimonial/inlineEdit"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+                <param name="indexField" xsi:type="string">id</param>
+            </editorConfig>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">chandan_testimonial_testimonial_listing.chandan_testimonial_testimonial_listing.chandan_testimonial_columns.actions</item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">approve</item>
+                        <item name="1" xsi:type="string">disapprove</item>
+                        <item name="2" xsi:type="string">status</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <column name="id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="customer_name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Customer Name</label>
+            </settings>
+        </column>
+        <column name="message">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Message</label>
+            </settings>
+        </column>
+        <column name="approval_status" class="Chandan\Testimonial\Ui\Component\Listing\Column\ApprovalStatus">
+            <settings>
+                <filter>select</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>select</editorType>
+                    <editorOptions class="Magento\Catalog\Ui\Component\Product\Form\Element\Wysiwyg\Options"/>
+                </editor>
+                <label translate="true">Approval Status</label>
+            </settings>
+        </column>
+        <column name="status" class="Chandan\Testimonial\Ui\Component\Listing\Column\Status">
+            <settings>
+                <filter>select</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>select</editorType>
+                    <editorOptions class="Magento\Catalog\Ui\Component\Product\Form\Element\Wysiwyg\Options"/>
+                </editor>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Chandan\Testimonial\Ui\Component\Listing\Column\TestimonialActions">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

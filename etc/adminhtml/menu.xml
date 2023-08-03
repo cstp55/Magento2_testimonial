@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Chandan_Testimonial::testimonial" title="Testimonial" module="Chandan_Testimonial" sortOrder="20" resource="Chandan_Testimonial::testimonial"/>
+        <add id="Chandan_Testimonial::testimonial_manage" title="Manage Testimonials" module="Chandan_Testimonial" parent="Chandan_Testimonial::testimonial" action="chandan_testimonial/testimonial/index" resource="Chandan_Testimonial::testimonial_manage"/>
+    </menu>
+</config>

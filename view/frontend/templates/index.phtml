@@ -1,0 +1,11 @@
+<div class="testimonial-list">
+    <h2>Testimonials</h2>
+    <ul>
+        <?php foreach ($block->getTestimonials() as $testimonial): ?>
+            <li>
+                <h3><?= $this->escapeHtml($testimonial->getCustomerName()) ?></h3>
+                <p><?= $this->escapeHtml($testimonial->getMessage()) ?></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
